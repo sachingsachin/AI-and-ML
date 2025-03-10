@@ -44,7 +44,14 @@ Applications: The generated data can be used in various applications, such as da
 ### C. Transformer Models:
 Models like GPT-3 (Generative Pre-trained Transformer 3) and BERT (Bidirectional Encoder Representations from Transformers) are widely used for generating text and understanding natural language. GPT-2, the predecessor of GPT-3, has 1.5 billion parameters. The leap to 175 billion parameters in GPT-3 represents a significant increase in model complexity and capability. GPT-3 is based on neural networks, specifically a type known as transformer networks. 
 
-**Neural Networks and Nodes**  
+**Nodes (or Neurons) in Neural Networks**  
 1. Nodes: In neural networks, nodes (or neurons) are the basic units of computation. Each node processes inputs, applies a function, and passes the output to the next layer of nodes.
-2. Layers: Neural networks are composed of layers of nodes. There are input layers, hidden layers, and output layers. In transformer models like GPT-3, these layers include self-attention and feed-forward layers.
+2. Layers: Neural networks are composed of layers of nodes. There are input layers, hidden layers, and output layers. In transformer models like GPT-3, these layers include `self-attention` and `feed-forward` layers.
+
+**Parameters in Neural Networks**
+1. Parameters: In neural networks, parameters refer to the weights and biases that determine the strength and nature of the connections `between the nodes`. These parameters are adjusted during training to minimize the error in the model's predictions.
+2. Representation: Each parameter is not directly represented by a single node. Instead, the parameters are associated with the connections between nodes and the nodes' computations. In other words, **a node may have multiple incoming and outgoing connections, each with its own weight parameter**.
+
+GPT-3 uses the transformer architecture, which includes multiple layers of `self-attention mechanisms` and `feed-forward` neural networks. The self-attention mechanism allows the model to weigh the importance of different words in a sequence and capture long-range dependencies.
+
 
