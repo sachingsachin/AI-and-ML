@@ -54,4 +54,10 @@ Models like GPT-3 (Generative Pre-trained Transformer 3) and BERT (Bidirectional
 
 GPT-3 uses the transformer architecture, which includes multiple layers of `self-attention mechanisms` and `feed-forward` neural networks. The self-attention mechanism allows the model to weigh the importance of different words in a sequence and capture long-range dependencies.
 
+---
+
+## MoE - Mixture of Experts - How DeepSeek achieves drasticallty lower cost
+
+MoE model does not have a single uber-expert-of-everything. Rather it has several expert models and it invokes the right one by understading the query. Due to this, a single model need not be trained on everything and the parameter space handled by each model is reduced drastically. Example: there could be lawyer model and a doctor model and queries are sent to either one of those based on type of query.
+
 
