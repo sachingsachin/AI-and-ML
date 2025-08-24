@@ -42,7 +42,7 @@ Applications: The generated data can be used in various applications, such as da
 ---
 
 ### C. Transformer Models:
-Models like GPT-3 (Generative Pre-trained Transformer 3) and BERT (Bidirectional Encoder Representations from Transformers) are widely used for generating text and understanding natural language. GPT-2, the predecessor of GPT-3, has 1.5 billion parameters. The leap to 175 billion parameters in GPT-3 represents a significant increase in model complexity and capability. GPT-3 is based on neural networks, specifically a type known as transformer networks. 
+Models like GPT-3 (Generative Pre-trained Transformer 3) and BERT (Bidirectional Encoder Representations from Transformers) are widely used for generating text and understanding natural language. GPT-2, the predecessor of GPT-3, has 1.5 billion parameters. The leap to 175 billion parameters in GPT-3 represents a significant increase in model complexity and capability. GPT-3 is based on neural networks, specifically a type known as transformer networks. GPT-4 onwards, the number of parameters is not publicly disclosed but its estimated that it has crossed the 1 trillion parameter mark.
 
 **Nodes (or Neurons) in Neural Networks**  
 1. Nodes: In neural networks, nodes (or neurons) are the basic units of computation. Each node processes inputs, applies a function, and passes the output to the next layer of nodes.
