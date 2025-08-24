@@ -105,3 +105,46 @@ Head 3 might focus on article–noun (the → cat).
 Together, multi-head attention captures a richer picture than any single head.
 
 
+**A Simple Example to programatically interact with Chat GPT**
+
+```java
+import com.theokanning.openai.OpenAiService;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatMessage;
+import com.theokanning.openai.completion.chat.ChatCompletionChoice;
+
+import java.util.Arrays;
+
+public class SimpleLLMExample {
+    public static void main(String[] args) {
+        // Load your OpenAI API key (set it in your environment variables for security)
+        String apiKey = System.getenv("OPENAI_API_KEY");
+
+        // Create a service object
+        OpenAiService service = new OpenAiService(apiKey);
+
+        // Build a chat completion request
+        ChatCompletionRequest request = ChatCompletionRequest.builder()
+                .model("gpt-3.5-turbo") // You can replace with "gpt-4" if available
+                .messages(Arrays.asList(
+                        new ChatMessage("system", "You are a helpful assistant."),
+                        new ChatMessage("user", "Explain the difference between Java and Python in simple terms.")
+                ))
+                .maxTokens(200)
+                .temperature(0.7)
+                .build();
+
+        // Send the request and get a response
+        service.createChatCompletion(request).getChoices().forEach(choice -> {
+            System.out.println("LLM Response: " + choice.getMessage().getContent());
+        });
+    }
+}
+```
+
+There are 3 roles that can be used when sending message to ChatGPT:
+1. `System role` (Sets the stage or the control plane, like a persona): Lets developers constrain or steer the LLM’s behavior (e.g., “be a math tutor”, “speak like Shakespeare”).
+2. `User role` (Actually query whose answer we seek): keeps the user’s query distinct from instructions. Otherwise, a malicious user could overwrite the assistant’s behavior (“ignore all previous instructions”).
+3. `Assistant role` (Represents memory): Allows multi-turn context by replaying the conversation history back to the model (so it doesn’t repeat or contradict itself).
+
+
