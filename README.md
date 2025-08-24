@@ -61,3 +61,47 @@ GPT-3 uses the transformer architecture, which includes multiple layers of `self
 MoE model does not have a single uber-expert-of-everything. Rather it has several expert models and it invokes the right one by understading the query. Due to this, a single model need not be trained on everything and the parameter space handled by each model is reduced drastically. Example: there could be lawyer model and a doctor model and queries are sent to either one of those based on type of query.
 
 
+## Transformer Model
+
+The name Transformer comes from the model’s ability to transform an input sequence into an output sequence using only attention mechanisms — without recurrence (RNNs) or convolutions (CNNs).
+
+In the original paper (“Attention Is All You Need”, 2017), the task was sequence-to-sequence translation.
+
+Example: input = English sentence, output = French sentence.
+
+The encoder transforms the input sequence into a **contextual representation**.
+
+The decoder transforms that into an output sequence in the target language.
+
+So the “transformation” is literally:  
+Input tokens → contextual embeddings → output tokens
+
+**What is being transformed?**
+
+Embeddings: Raw word/token embeddings are transformed layer by layer into richer contextual representations.
+
+Relationships: Self-attention transforms the representation of a token by mixing in weighted information from all other tokens.
+
+Example: the representation of “sat” is transformed to include context from “cat” (who sat) and “mat” (where it sat).
+
+Sequences: An entire input sequence is transformed into an output sequence (translation, summarization, next-word prediction, etc.)
+
+
+**All the steps of the transformer model**
+
+1. Tokenize a sentence.
+2. Capture positional information for each token.
+3. Activate self-attention: This process uses the position information to draw relationships between tokens. Like verb, article, preposition, subject, object etc. Based on this self-attention, it assigns weights to relationships between the tokens. 
+4. Activate multi-head attention: Runs several self-attention mechanisms in parallel. A single self-attention head may only capture one type of relationship. Multiple heads let the model learn different relationships simultaneously. Say you have 8 heads. Each head computes its own attention output. These outputs are concatenated and linearly transformed into the final representation.
+
+Example (“The cat sat on the mat”):
+
+Head 1 might focus on subject–verb (cat → sat).
+
+Head 2 might focus on preposition–object (on → mat).
+
+Head 3 might focus on article–noun (the → cat).
+
+Together, multi-head attention captures a richer picture than any single head.
+
+
